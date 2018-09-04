@@ -6,11 +6,20 @@ import com.android.build.gradle.api.ApplicationVariant
 import com.android.build.gradle.api.BaseVariantOutput
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 
+buildscript {
+    repositories {
+        maven(url = "https://maven.fabric.io/public")
+    }
+    dependencies {
+        classpath("io.fabric.tools:gradle:1.25.4")
+    }
+}
+
 plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
-    kotlin("kapt")
+    id("io.fabric") version "1.25.4"
 }
 
 android {
